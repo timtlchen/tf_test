@@ -14,7 +14,7 @@ resource "google_compute_instance" "ctl-test-instance" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-1604-xenial-v20170815a"
+      image = "mule-runtime-380"
     }
   }
   network_interface {
