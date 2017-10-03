@@ -14,7 +14,7 @@ resource "google_compute_instance" "ctl-test-instance" {
 
   boot_disk {
     initialize_params {
-      image = "mule-runtime-380"
+      image = "${var.boot_disk_img_name}"
     }
   }
   network_interface {
@@ -35,7 +35,7 @@ resource "google_compute_instance" "ctl-test-instance" {
   }
 
   metadata_startup_script = <<SCRIPT
-echo helloworld ctl > test.txt
+mule start
 SCRIPT
 
 
