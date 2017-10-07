@@ -11,7 +11,7 @@ resource "google_compute_http_health_check" "auto-health-check" {
   timeout_sec         = 10
   check_interval_sec  = 60
   unhealthy_threshold = 5
-  healthy_threshold   = 2
+  healthy_threshold   = 1
 }
 
 
@@ -23,7 +23,7 @@ resource "google_compute_instance_template" "auto-instance-template" {
 
   instance_description = "Standard instance from template"
   machine_type         = "n1-standard-1"
-  can_ip_forward       = false
+  can_ip_forward       = true
 
   disk {
     source_image = "${var.boot_disk_img_name}"
@@ -100,3 +100,13 @@ resource "google_compute_autoscaler" "auto-scaler" {
 }
 
 
+
+resource "google_compute_firewall" "auto-allow-application-port" {
+  name    = "${var.project_tag}-allow-8081"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["8081"]
+  }
+}
