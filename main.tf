@@ -110,3 +110,23 @@ resource "google_compute_firewall" "auto-firewall-rule" {
     ports    = ["8081"]
   }
 }
+
+
+resource "google_compute_target_pool" "auto-target-pool" {
+  name = "${var.project_tag}-target-pool"
+
+  instances = [
+    "${google_compute_instance.*.self_link}",
+  ]
+
+  health_checks = [
+    "${google_compute_http_health_check.auto-health-check.self_link}",
+  ]
+}
+
+
+resource "google_compute_forwarding_rule" "auto-forwarding-rule" {
+  name       = "${var.project_tag}-forwarding-rule"
+  target     = "${google_compute_target_pool.auto-target-pool.self_link}"
+  port_range = "8081-8081"
+}
