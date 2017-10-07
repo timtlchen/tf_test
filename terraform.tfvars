@@ -7,6 +7,6 @@ project_tag = "ctl-sample"
 
 #use a new img with a sample backend mule service installed
 #boot_disk_img_name = "projects/my-initial-project-175007/global/images/mule-runtime-380-20171003"
-boot_disk_img_name = "mule-runtime-380-20171007-2"
+boot_disk_img_name = "projects/test-creating-new-project/global/images/mule-runtime-380-20171007-3"
 
 
