@@ -34,9 +34,4 @@ resource "google_compute_instance" "ctl-test-instance" {
       ]
   }
 
-  metadata_startup_script = <<SCRIPT
-mule start
-SCRIPT
-
-
 }
