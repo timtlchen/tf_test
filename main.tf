@@ -31,7 +31,6 @@ resource "google_compute_instance_template" "auto-instance-template" {
     boot         = true
   }
 
-  // This network section will need to be enhanced to allow DNS to dynamically proxy to each instance
   network_interface {
     network = "default"
 	access_config {
@@ -72,7 +71,8 @@ resource "google_compute_instance_group_manager" "auto-appserver-groupmgr" {
   update_strategy    = "NONE"
   zone               = "${var.region_zone}"
 
-  //target_pools = ["${google_compute_target_pool.appserver.self_link}"]
+  target_pools = ["${google_compute_target_pool.auto-target-pool.self_link}"]
+  //autoscale does not need a target_size. Otherwise specify it here.
   //target_size  = 2
   
   auto_healing_policies {
@@ -115,10 +115,8 @@ resource "google_compute_firewall" "auto-firewall-rule" {
 resource "google_compute_target_pool" "auto-target-pool" {
   name = "${var.project_tag}-target-pool"
 
-  instances = [
-    "${google_compute_instance.*.self_link}",
-  ]
-
+  // not configuring instances here, coz in instance group manager we already add new instances in this target pool.
+  
   health_checks = [
     "${google_compute_http_health_check.auto-health-check.self_link}",
   ]
