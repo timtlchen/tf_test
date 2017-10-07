@@ -21,3 +21,7 @@ variable "account_file_path" {
 variable "boot_disk_img_name" {
 	description = "boot disk image name"
 }
+
+variable "vm_count" {
+	description = "Number of VMs to create"
+}

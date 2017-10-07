@@ -5,7 +5,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "ctl-test-instance" {
-  count = 1
+  count = "${var.vm_count}"
   name = "${var.project_tag}-${count.index}"
   machine_type = "n1-standard-1"
   zone = "${var.region_zone}"
