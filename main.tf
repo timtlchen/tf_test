@@ -101,7 +101,7 @@ resource "google_compute_autoscaler" "auto-scaler" {
 
 
 
-resource "google_compute_firewall" "auto-allow-application-port" {
+resource "google_compute_firewall" "auto-firewall-rule" {
   name    = "${var.project_tag}-allow-8081"
   network = "default"
 
