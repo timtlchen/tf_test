@@ -1,4 +1,5 @@
 /my_initial_project.json
 /project_service_account.json
 *.tfstate
+*.tfstate.backup
 .terraform
