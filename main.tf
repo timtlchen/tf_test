@@ -117,8 +117,7 @@ resource "google_compute_target_pool" "auto-target-pool" {
 
   // not configuring instances here, coz in instance group manager we already add new instances in this target pool.
   
-  health_checks = "${google_compute_http_health_check.auto-health-check.self_link}"
-  ]
+  health_checks = "${google_compute_http_health_check.auto-health-check.self_link}"  
 }
 
 
