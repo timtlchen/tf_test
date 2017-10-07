@@ -1,13 +1,17 @@
 variable "region" {
-	default = "us-central1"
+	default = "asia-southeast1"
 }
 
 variable "region_zone" {
-	default = "us-central1-f"
+	default = "asia-southeast1-a"
 }
 
-variable "project_name" {
+variable "project_id" {
 	description = "The ID of the Google Cloud project"
+}
+
+variable "project_tag" {
+	description = "The project tag, which is also used as a prefix for project name, VM name, etc."
 }
 
 variable "account_file_path" {

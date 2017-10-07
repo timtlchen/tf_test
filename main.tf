@@ -1,15 +1,15 @@
 provider "google" {
   region = "${var.region}"
-  project = "${var.project_name}"
+  project = "${var.project_id}"
   credentials = "${file(var.account_file_path)}"
 }
 
 resource "google_compute_instance" "ctl-test-instance" {
   count = 1
-  name = "ctl-test-instance-${count.index}"
+  name = "${var.project_tag}-${count.index}"
   machine_type = "n1-standard-1"
   zone = "${var.region_zone}"
-  tags = ["ctl-test-node"]
+  tags = ["${var.project_tag}"]
 
 
   boot_disk {
