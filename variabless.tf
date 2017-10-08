@@ -22,10 +22,6 @@ variable "boot_disk_img" {
 	description = "boot disk image"
 }
 
-variable "shared_disk" {
-	description = "shared disk name"
-}
-
 variable "port_range" {
 	description = "Port range for firewall rules"
 }
