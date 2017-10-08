@@ -26,7 +26,7 @@ resource "google_compute_instance_template" "auto-instance-template" {
   can_ip_forward       = true
 
   disk {
-    source_image = "${var.boot_disk_img_name}"
+    source_image = "${var.boot_disk_img}"
     auto_delete  = true
     boot         = true
   }

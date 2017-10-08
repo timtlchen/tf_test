@@ -18,8 +18,8 @@ variable "account_file_path" {
 	description = "Path to the JSON file used to describe your account credentials"
 }
 
-variable "boot_disk_img_name" {
-	description = "boot disk image name"
+variable "boot_disk_img" {
+	description = "boot disk image"
 }
 
 variable "shared_disk" {
