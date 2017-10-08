@@ -31,6 +31,12 @@ resource "google_compute_instance_template" "auto-instance-template" {
     boot         = true
   }
 
+  disk {
+    source_image = "${var.shared_disk}"
+    auto_delete  = false
+    boot         = false
+  }
+
   network_interface {
     network = "default"
 	access_config {
