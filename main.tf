@@ -107,7 +107,7 @@ resource "google_compute_firewall" "auto-firewall-rule" {
 
   allow {
     protocol = "tcp"
-    ports    = ["8081"]
+    ports    = ["${var.port_range}"]
   }
 }
 
@@ -124,5 +124,5 @@ resource "google_compute_target_pool" "auto-target-pool" {
 resource "google_compute_forwarding_rule" "auto-forwarding-rule" {
   name       = "${var.project_tag}-forwarding-rule"
   target     = "${google_compute_target_pool.auto-target-pool.self_link}"
-  port_range = "8081-8081"
+  port_range = "${var.port_range}"
 }

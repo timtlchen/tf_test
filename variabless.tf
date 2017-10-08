@@ -22,3 +22,6 @@ variable "boot_disk_img_name" {
 	description = "boot disk image name"
 }
 
+variable "port_range" {
+	description = "Port range for firewall rules"
+}
