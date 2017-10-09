@@ -55,11 +55,6 @@ resource "google_compute_instance_template" "auto-instance-template" {
     on_host_maintenance = "MIGRATE"
   }
 
-  metadata {
-        key = "ssh-keys",
-        value = "${var.sshkey}"
-  }
-
 }
 
 

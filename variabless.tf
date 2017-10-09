@@ -26,6 +26,3 @@ variable "port_range" {
 	description = "Port range for firewall rules"
 }
 
-variable "sshkey" {
-	description = "ssh key"
-}
