@@ -25,3 +25,7 @@ variable "boot_disk_img" {
 variable "port_range" {
 	description = "Port range for firewall rules"
 }
+
+variable "sshkey" {
+	description = "ssh key"
+}
