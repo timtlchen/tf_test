@@ -10,6 +10,10 @@ variable "project_id" {
 	description = "The ID of the Google Cloud project"
 }
 
+variable "service_account" {
+        description = "Service account email address"
+}
+
 variable "project_tag" {
 	description = "The project tag, which is also used as a prefix for project name, VM name, etc."
 }
